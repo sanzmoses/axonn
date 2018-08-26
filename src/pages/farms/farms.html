@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons start>
+      <button ion-button (click)='presentModal()'>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> 
+    <ion-title>
+       Farms
+    </ion-title>
+    <ion-buttons end>
+   
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-list id="restaurants-list1">
+       <ion-item *ngFor="let i of farmsdata;">
+        <ion-thumbnail item-start>
+          <img [src]="'http://restofinder.itresourcesgroup.com.au/storage/app/' + i.image">
+        </ion-thumbnail>
+        <h2>{{i.restaurant_name}}</h2>
+        <p>{{i.info}}</p>
+        <button ion-button clear item-end (click)='viewRestaurant(i.id)' >View</button>
+      </ion-item>
+    
+  </ion-list>
+</ion-content>

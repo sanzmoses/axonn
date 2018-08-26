@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons start>
+      <button ion-button (click)='presentModal()'>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> 
+    <ion-title>
+       Orders
+    </ion-title>
+    <ion-buttons end>
+   
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list id="restaurants-list1" *ngFor="let i of ordersdata;">
+       <ion-item>
+        <ion-thumbnail item-start>
+          <img [src]="'http://restofinder.itresourcesgroup.com.au/storage/app/' + i.product_image">
+        </ion-thumbnail>
+        <h2 text-wrap>Farm Name: {{i.restaurant_name}}</h2>
+        <h2 text-wrap>Product: {{i.product_name}}</h2>
+        <p text-wrap>PHP {{i.price}}</p>
+        <p text-wrap>quantity : {{i.quantity}}</p>
+        <p text-wrap>total : PHP {{i.quantity * i.price}}</p>
+        <button ion-button clear item-end (click)='cancelOrder(i.id)' >Cancel Order</button>
+      </ion-item>
+    
+  </ion-list>
+</ion-content>

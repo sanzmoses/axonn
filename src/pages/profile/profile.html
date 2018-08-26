@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> 
+    <ion-title>
+    Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+   <form (ngSubmit)="logForm()">
+   <ion-list>
+        <ion-item>
+         <ion-label color="primary"  floating>Full Name</ion-label>
+          <ion-input [(ngModel)]="user.fullname" name="fullname"></ion-input>
+        </ion-item>
+        <ion-item>
+         <ion-label color="primary" floating>Address</ion-label>
+          <ion-input  [(ngModel)]="user.address" name="address"></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-label color="primary" floating>Contact</ion-label>
+          <ion-input  [(ngModel)]="user.contact" name="contact"></ion-input>
+        </ion-item>
+
+        <ion-item>
+         <ion-label color="primary" floating>Email</ion-label>
+          <ion-input  [(ngModel)]="user.email" name="email" disabled="true"></ion-input>
+        </ion-item>
+    
+       
+   </ion-list>
+      <button ion-button type="submit" block>Update</button>
+    </form>
+</ion-content>

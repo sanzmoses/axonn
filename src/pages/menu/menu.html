@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons start>
+      <button ion-button (click)='presentModal()'>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> 
+    <ion-title>
+       Farm Product
+    </ion-title>
+    <ion-buttons end>
+   
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-list id="restaurants-list1">
+       <ion-item  *ngFor="let i of farmdata;let in = index">
+        <ion-thumbnail item-start>
+          <img [src]="'http://restofinder.itresourcesgroup.com.au/storage/app/' + i.image">
+        </ion-thumbnail>
+        <h2>{{i.product_name}}</h2>
+        <p>Price: P{{i.price}}</p>
+       
+
+        <p item-end *ngIf="orderList[in]">{{orderList[in].quantity}}</p>
+
+        <ion-icon item-end name="remove-circle" (click)='decreaseItem(i)'></ion-icon>
+          
+        <ion-icon item-end name="add-circle" (click)='addItem(i)'></ion-icon>
+       
+      </ion-item>
+    
+  </ion-list>
+  <button ion-button block color="primary" (click)='presentConfirm()'>Submit</button>
+
+</ion-content>
